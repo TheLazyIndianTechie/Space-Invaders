@@ -117,7 +117,7 @@ int main()
         }
 
         // Clear the window
-        window.clear(Color::Black);
+        window.clear(Color::Yellow);
 
         window.draw(greenCircle);
         window.draw(redSquare);
