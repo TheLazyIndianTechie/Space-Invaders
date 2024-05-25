@@ -4,11 +4,16 @@ using namespace std;
 
 int main()
 {
+#pragma region GraphicsSetup
     // Define the video mode dimensions
     VideoMode videoMode(320*1.5, 480*1.5);
 
     // Spawn a window object with dimensions and a title
     RenderWindow window(videoMode, "The Trifecta");
+#pragma endregion
+
+
+#pragma region Parameters
 
     // Enabling vSync
     window.setVerticalSyncEnabled(true);
@@ -27,8 +32,30 @@ int main()
     sprite.setScale(0.5, 0.5);
     sprite.setRotation(0);
 
+#pragma endregion
 
 
+#pragma region Text
+
+
+    // Create text objects
+
+    //Load a font
+    Font font;
+    string fontLocation = "assets/fonts/OpenSans.ttf";
+    font.loadFromFile(fontLocation);
+
+    // Setup text
+    string message = "Hello, SFML!";
+    Text text;
+    text.setString(message);
+    text.setFillColor(Color::White);
+    text.setFont(font);
+    text.setCharacterSize(50);
+   
+#pragma endregion
+
+#pragma region Shapes
 
     //TODO: Code to set the object at centre
     //setPosition((window.getSize().x - circle.getRadius() * 2) / 2, (window.getSize().y - circle.getRadius() * 2) / 2);
@@ -56,7 +83,10 @@ int main()
     blueTriangle.setScale(Vector2f(100, 100)); // Set the scale of the triangle
     blueTriangle.setPosition(centrePoint); // Set the position to center
     
-    
+#pragma endregion
+
+#pragma region Velocity
+
     // Set initial velocity for the cube
     Vector2f squareVelocity(0.75f, 0.75f);
 
@@ -65,6 +95,10 @@ int main()
 
     // Set initial velocity for triangle
     Vector2f triangleVelocity(-0.15f, 0.25f);
+
+#pragma endregion
+
+#pragma region GameLoop
 
     // Game loop
     while (window.isOpen()) {
@@ -126,10 +160,16 @@ int main()
         // Draw sprites
         window.draw(sprite);
 
+        // Draw Text
+        window.draw(text);
 
         // Display the drawn items
         window.display();
     }
 
+#pragma endregion
+
+    
     return 0;
+
 }
