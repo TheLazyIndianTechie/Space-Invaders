@@ -14,6 +14,9 @@ int main()
     window.setVerticalSyncEnabled(true);
 
 
+    //TODO: Code to set the object at centre
+    //setPosition((window.getSize().x - circle.getRadius() * 2) / 2, (window.getSize().y - circle.getRadius() * 2) / 2);
+
     // Draw a Green Circle
     CircleShape greenCircle; // Create a circle shape
     greenCircle.setFillColor(Color::Green); // Fill with green
@@ -25,8 +28,7 @@ int main()
     RectangleShape redSquare; // Define a rectangle shape for the square
     redSquare.setFillColor(Color::Red); // Fill with red
     redSquare.setSize(Vector2f(50,50)); // Set the square size
-    Vector2f offset(100, 100);
-    redSquare.setPosition(centrePoint);
+    redSquare.setPosition(centrePoint); // Set the pos to centre
 
     // Draw a Blue Triangle
     ConvexShape blueTriangle; // Create a convex shape for the triangle
@@ -35,12 +37,8 @@ int main()
     blueTriangle.setPoint(0, Vector2f(0, 0)); // Set pos of vert 1
     blueTriangle.setPoint(1, Vector2f(1, 0)); // Set pos of vert 2
     blueTriangle.setPoint(2, Vector2f(0.5, 1)); // Set pos of vert 3
-    blueTriangle.setScale(Vector2f(100, 100));
-    blueTriangle.setPosition(centrePoint);
-    
-
-    //TODO: Code to set the object at centre
-    //setPosition((window.getSize().x - circle.getRadius() * 2) / 2, (window.getSize().y - circle.getRadius() * 2) / 2);
+    blueTriangle.setScale(Vector2f(100, 100)); // Set the scale of the triangle
+    blueTriangle.setPosition(centrePoint); // Set the position to center
     
     
     // Set initial velocity for the cube
@@ -59,16 +57,16 @@ int main()
             }
         }
 
-        //// Move the cube
-        //cube.move(squareVelocity);
+        // Move the Red Square
+        redSquare.move(squareVelocity);
 
-        //// Check for collisions with the window edges and reverse velocity if needed
-        //if (cube.getPosition().x < 0 || cube.getPosition().x + cube.getSize().x > window.getSize().x) {
-        //    squareVelocity.x = -squareVelocity.x;
-        //}
-        //if (cube.getPosition().y < 0 || cube.getPosition().y + cube.getSize().y > window.getSize().y) {
-        //    squareVelocity.y = -squareVelocity.y;
-        //}
+        // Check for collisions with the window edges and reverse velocity if needed
+        if (redSquare.getPosition().x < 0 || redSquare.getPosition().x + redSquare.getSize().x > window.getSize().x) {
+            squareVelocity.x = -squareVelocity.x;
+        }
+        if (redSquare.getPosition().y < 0 || redSquare.getPosition().y + redSquare.getSize().y > window.getSize().y) {
+            squareVelocity.y = -squareVelocity.y;
+        }
 
         
         // Move the circle
