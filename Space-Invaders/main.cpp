@@ -47,6 +47,9 @@ int main()
     // Set initial velocity for circle
     Vector2f circleVelocity(-0.25f,-0.25f);
 
+    // Set initial velocity for triangle
+    Vector2f triangleVelocity(-0.15f, 0.25f);
+
     // Game loop
     while (window.isOpen()) {
         Event event;
@@ -69,19 +72,33 @@ int main()
         }
 
         
-        // Move the circle
-        /*circle.move(circleVelocity); */
+        // Move the green circle
+        greenCircle.move(circleVelocity); 
 
         //TODO: Check how to implement DRY here as it is repeating
         // TODO: The circle is still clipping through in the bottom. Need to research bounds and fix.
         // Check for collisions with the window edges and reverse velocity if needed
-       /* if (circle.getPosition().x < 0 || circle.getPosition().x + circle.getLocalBounds().width > window.getSize().x) {
+        if (greenCircle.getPosition().x < 0 || greenCircle.getPosition().x + greenCircle.getLocalBounds().width > window.getSize().x) {
             circleVelocity.x = -circleVelocity.x;
         }
-        if (circle.getPosition().y < 0 || circle.getPosition().y + circle.getLocalBounds().top > window.getSize().y) {
+        if (greenCircle.getPosition().y < 0 || greenCircle.getPosition().y + greenCircle.getLocalBounds().top > window.getSize().y) {
             circleVelocity.y = -circleVelocity.y;
-        }*/
+        }
 
+
+        // Rotate the blue triangle
+        blueTriangle.rotate(0.8f);
+
+        // Move the triangle
+
+        blueTriangle.move(triangleVelocity);
+
+        if (blueTriangle.getPosition().x < 0 || blueTriangle.getPosition().x + blueTriangle.getLocalBounds().width > window.getSize().x) {
+            triangleVelocity.x = -triangleVelocity.x;
+        }
+        if (blueTriangle.getPosition().y < 0 || blueTriangle.getPosition().y + blueTriangle.getLocalBounds().top> window.getSize().y) {
+            triangleVelocity.y = -triangleVelocity.y;
+        }
 
         // Clear the window
         window.clear(Color::Yellow);
