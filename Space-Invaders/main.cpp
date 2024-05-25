@@ -13,18 +13,25 @@ int main()
     // Enabling vSync
     window.setVerticalSyncEnabled(true);
 
-    // Create a rectangle shape representing the cube
-    RectangleShape cube(Vector2f(50, 50));
-    cube.setFillColor(Color::Black);
-    cube.setPosition(135, 215); // Initial position
 
-    // Add a circle shape with a radius of 50
-    CircleShape circle(50); 
-    circle.setPosition((window.getSize().x - circle.getRadius() * 2) / 2, (window.getSize().y - circle.getRadius() * 2) / 2);
-    circle.setFillColor(Color::Transparent);
-    circle.setOutlineColor(Color::Red);
-    circle.setOutlineThickness(2.0);
+    // Draw a Green Circle
+    CircleShape greenCircle; // Create a circle shape
+    greenCircle.setFillColor(Color::Green); // Fill with green
+     
+    // Draw a Red Square
+    RectangleShape redSquare; // Define a rectangle shape for the square
+    redSquare.setFillColor(Color::Red); // Fill with red
 
+    // Draw a Blue Triangle
+    ConvexShape blueTriangle; // Create a convex shape for the triangle
+    blueTriangle.setFillColor(Color::Blue); // Fill with Blue
+    
+    
+
+    //TODO: Code to set the object at centre
+    //setPosition((window.getSize().x - circle.getRadius() * 2) / 2, (window.getSize().y - circle.getRadius() * 2) / 2);
+    
+    
     // Set initial velocity for the cube
     Vector2f squareVelocity(0.75f, 0.75f);
 
