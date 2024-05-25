@@ -8,6 +8,9 @@ int main()
     // Spawn a window object with dimensions and a title
     sf::RenderWindow* window = new sf::RenderWindow(videoMode, "Lazy SMFL Window");
 
+    // Enabling vSync
+    window->setVerticalSyncEnabled(true);
+
     // Game loop
     while (window->isOpen()) {
         sf::Event event;
