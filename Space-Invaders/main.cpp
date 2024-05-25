@@ -12,12 +12,14 @@ int main()
     RenderWindow window(videoMode, "The Trifecta");
 #pragma endregion
 
-
 #pragma region Parameters
 
     // Enabling vSync
     window.setVerticalSyncEnabled(true);
 
+#pragma endregion
+
+#pragma region Sprites
     // Setup textures
     Texture outscalTexture;
     std::string textureLocation = "assets/textures/outscal_logo.png";
@@ -28,15 +30,12 @@ int main()
     sprite.setTexture(outscalTexture);
 
     //Set sprite pos
-    sprite.setPosition(50, 50);
+    sprite.setPosition(165, 200);
     sprite.setScale(0.5, 0.5);
-    sprite.setRotation(0);
-
+    sprite.setRotation(45);
 #pragma endregion
 
-
 #pragma region Text
-
 
     // Create text objects
 
@@ -46,12 +45,13 @@ int main()
     font.loadFromFile(fontLocation);
 
     // Setup text
-    string message = "Hello, SFML!";
+    string message = "SFML is Awesome";
     Text text;
     text.setString(message);
     text.setFillColor(Color::White);
     text.setFont(font);
-    text.setCharacterSize(50);
+    text.setCharacterSize(25);
+    text.setPosition(100, 10);
    
 #pragma endregion
 
@@ -153,12 +153,15 @@ int main()
         // Clear the window
         window.clear(Color::Black);
 
+        // Draw sprites
+        window.draw(sprite);
+
+        // Draw shapes
         window.draw(greenCircle);
         window.draw(redSquare);
         window.draw(blueTriangle);
 
-        // Draw sprites
-        window.draw(sprite);
+        
 
         // Draw Text
         window.draw(text);
@@ -168,7 +171,6 @@ int main()
     }
 
 #pragma endregion
-
     
     return 0;
 
