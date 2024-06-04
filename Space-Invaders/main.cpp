@@ -27,7 +27,7 @@ public:
 	Player() {
 		health = 100;
 		score = 0;
-		movementSpeed = 5.0f;
+		movementSpeed = 4.0f;
 	}
 
 	float getMovementSpeed() {
@@ -40,6 +40,18 @@ public:
 
 	int getScore() {
 		return score;
+	}
+
+	void takeDamage(){
+		
+	}
+
+	void movePlayer() {
+
+	}
+
+	void shootBullets() {
+
 	}
 
 };
