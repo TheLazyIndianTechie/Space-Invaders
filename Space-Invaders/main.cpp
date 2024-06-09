@@ -64,8 +64,28 @@ int main() {
 	// Create window object with dimensions
 	RenderWindow window(videoMode, "Face Invader");
 
+	// Initialize the player
+	Player player;
 
+	// Set sprite
+	if (player.playerTexture.loadFromFile("./assets/textures/player_ship.png"))
+	{
+		std::cout << "Texture loaded successfully: " << player.playerTexture.getSize().x << " x " << player.playerTexture.getSize().y;
 
+		player.playerSprite.setTexture(player.playerTexture);
+	}
+	else
+	{
+		std::cout << "Player sprite could not be loaded";
+	}
+
+	// Assign player the sprite
+	player.playerSprite;
+
+	// Set up player input controls
+	Keyboard::Key movePlayerLeft = Keyboard::Left, movePlayerRight = Keyboard::Right;
+
+	
 
 	while (window.isOpen())
 	{
@@ -79,14 +99,23 @@ int main() {
 			}
 		}
 
+		// Capture player input
+		if (movePlayerLeft)
+		{
+			// Move player left
+		}
+
+		if (movePlayerRight)
+		{
+			// Move player right
+		}
+
 		// Clear the window with Yellow
 		window.clear(Color::Color::Yellow);
 		
-		// Initialize the player
-		Player player;
-
+		
 		// Print player speed 
-		cout << "Player Movement Speed: " << player.getMovementSpeed() << endl;
+		//cout << "Player Movement Speed: " << player.getMovementSpeed() << endl;
 
 		// Display to window
 		window.display();
