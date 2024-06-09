@@ -117,6 +117,9 @@ int main() {
 		// Print player speed 
 		//cout << "Player Movement Speed: " << player.getMovementSpeed() << endl;
 
+		// Draw player
+		window.draw(player.playerSprite);
+
 		// Display to window
 		window.display();
 	}
