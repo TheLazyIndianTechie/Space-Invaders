@@ -137,7 +137,7 @@ int main() {
 		player.playerSprite.setOrigin(player.playerTexture.getSize().x / 2.f, player.playerTexture.getSize().y / 2.f);
 
 		Vector2f startPos = Vector2f(window.getSize().x / 2, window.getSize().y - player.playerTexture.getSize().y);
-		cout << "Player Sprite Height: " << player.playerTexture.getSize().y;
+		// cout << "Player Sprite Height: " << player.playerTexture.getSize().y << endl;
 
 		
 		// Clear the window with Yellow
