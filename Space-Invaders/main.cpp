@@ -3,6 +3,9 @@
 using namespace std;
 using namespace sf;
 
+
+Vector2f initialPosition;
+
 class Player
 {
 
@@ -28,6 +31,12 @@ public:
 		health = 100;
 		score = 0;
 		movementSpeed = 4.0f;
+		playerPosition = Vector2f(initialPosition);
+		playerSprite.setPosition(playerPosition);
+	}
+
+	Vector2f getPosition() {
+		return playerPosition;
 	}
 
 	float getMovementSpeed() {
@@ -40,6 +49,11 @@ public:
 
 	int getScore() {
 		return score;
+	}
+
+
+	void setPosition(Vector2f position) {
+		playerPosition = position;
 	}
 
 	void takeDamage(){
@@ -64,8 +78,14 @@ int main() {
 	// Create window object with dimensions
 	RenderWindow window(videoMode, "Face Invader");
 
+	// Set start position of window
+	initialPosition = sf::Vector2f(window.getSize().x / 2, window.getSize().y - 100);
+
+
 	// Initialize the player
 	Player player;
+
+
 
 	// Set sprite
 	if (player.playerTexture.loadFromFile("./assets/textures/player_ship.png"))
@@ -110,12 +130,17 @@ int main() {
 			cout << "Player is being moved right" << endl;
 		}
 
+		Vector2f startPos = Vector2f(window.getSize().x / 2, window.getSize().y - player.playerTexture.getSize().y);
+		cout << "Player Sprite Height: " << player.playerTexture.getSize().y;
+
+		player.setPosition(startPos);
 		// Clear the window with Yellow
-		window.clear(Color::Color::Yellow);
+		window.clear(Color::Yellow);
 		
 		
 		// Print player speed 
 		//cout << "Player Movement Speed: " << player.getMovementSpeed() << endl;
+
 
 		// Draw player
 		window.draw(player.playerSprite);
