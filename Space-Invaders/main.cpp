@@ -30,7 +30,7 @@ public:
 	Player() {
 		health = 100;
 		score = 0;
-		movementSpeed = 4.0f;
+		movementSpeed = 0.5f;
 		playerPosition = Vector2f(initialPosition);
 		playerSprite.setPosition(playerPosition);
 	}
@@ -60,7 +60,8 @@ public:
 		
 	}
 
-	void movePlayer() {
+	void movePlayer(float offsetX) {
+		playerPosition.x += offsetX;
 
 	}
 
@@ -122,12 +123,14 @@ int main() {
 		{
 			// Move player left
 			cout << "Player is being moved left" << endl;
+			player.movePlayer(-1.0 * player.getMovementSpeed());
 		}
 
 		if (Keyboard::isKeyPressed(movePlayerRight))
 		{
 			// Move player right
 			cout << "Player is being moved right" << endl;
+			player.movePlayer(1.0 * player.getMovementSpeed());
 		}
 
 		// Set origin to the center of the texture
@@ -136,13 +139,13 @@ int main() {
 		Vector2f startPos = Vector2f(window.getSize().x / 2, window.getSize().y - player.playerTexture.getSize().y);
 		cout << "Player Sprite Height: " << player.playerTexture.getSize().y;
 
-		// Set start position
-		player.setPosition(startPos);
 		
 		// Clear the window with Yellow
 		window.clear(Color::Yellow);
 		
-		
+
+		player.playerSprite.setPosition(player.getPosition());
+
 		// Print player speed 
 		//cout << "Player Movement Speed: " << player.getMovementSpeed() << endl;
 
