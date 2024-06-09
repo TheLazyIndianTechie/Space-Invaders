@@ -79,11 +79,9 @@ int main() {
 		std::cout << "Player sprite could not be loaded";
 	}
 
-	// Assign player the sprite
-	player.playerSprite;
-
 	// Set up player input controls
-	Keyboard::Key movePlayerLeft = Keyboard::Left, movePlayerRight = Keyboard::Right;
+	Keyboard::Key movePlayerLeft = Keyboard::Left; 
+	Keyboard::Key movePlayerRight = Keyboard::Right;
 
 	
 
@@ -100,14 +98,16 @@ int main() {
 		}
 
 		// Capture player input
-		if (movePlayerLeft)
+		if (Keyboard::isKeyPressed(movePlayerLeft))
 		{
 			// Move player left
+			cout << "Player is being moved left" << endl;
 		}
 
-		if (movePlayerRight)
+		if (Keyboard::isKeyPressed(movePlayerRight))
 		{
 			// Move player right
+			cout << "Player is being moved right" << endl;
 		}
 
 		// Clear the window with Yellow
