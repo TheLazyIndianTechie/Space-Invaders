@@ -3,7 +3,9 @@
 using namespace std;
 using namespace sf;
 
+#pragma region BackupCode
 
+/*
 Vector2f initialPosition;
 
 class Player
@@ -157,5 +159,11 @@ int main() {
 		window.display();
 	}
 
+	return 0;
+}
+*/
+#pragma endregion
+
+int main() {
 	return 0;
 }
