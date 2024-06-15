@@ -1,5 +1,6 @@
+#include <iostream>
 #include "../Header/GameService.h"
-
+using namespace std;
 
 void GameService::Initialize()
 {
@@ -23,7 +24,8 @@ GameService::~GameService()
 
 void GameService::ignite()
 {
-	// Call the initialization and starts game 
+	// Call the initialization and starts game
+	 	cout << "Igniting";
 }
 
 void GameService::update()
