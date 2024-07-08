@@ -4,6 +4,8 @@ ServiceLocator::ServiceLocator()
 {
 	// Constructor for service locator
 	graphicService = nullptr;
+	eventService = nullptr;
+
 	createServices(); // call to instantiate
 }
 
@@ -18,6 +20,7 @@ void ServiceLocator::createServices()
 {
 	// Create all services for various units
 	graphicService = new GraphicService();
+	eventService = new EventService();
 }
 
 void ServiceLocator::clearAllServices()
@@ -25,6 +28,11 @@ void ServiceLocator::clearAllServices()
 	// Clear all services up on destroy
 	delete(graphicService);
 	graphicService = nullptr;
+
+	delete(eventService);
+	eventService = nullptr;
+
+	// Prevents dangling pointers
 }
 
 ServiceLocator* ServiceLocator::getInstance()
@@ -38,12 +46,14 @@ void ServiceLocator::initialize()
 {
 	// Initialize services
 	graphicService->initialize();
+	eventService->initialize();
 }
 
 void ServiceLocator::update()
 {
 	// Update game state and logic for service
 	graphicService->update();
+	eventService->update();
 }
 
 void ServiceLocator::render()
@@ -55,4 +65,9 @@ void ServiceLocator::render()
 GraphicService* ServiceLocator::getGraphicService()
 {
 	return graphicService;
+}
+
+EventService* ServiceLocator::getEventService()
+{
+	return eventService;
 }

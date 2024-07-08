@@ -1,6 +1,8 @@
 #include <iostream>
 #include "../Header/GameService.h"
 #include "../Header/GraphicService.h"
+#include "../Header/EventService.h"
+
 
 using namespace std;
 
@@ -49,7 +51,11 @@ void GameService::destroy()
 
 void GameService::update()
 {
+	// Process events
+	serviceLocator->getEventService()->processEvents();
+
 	serviceLocator->update();
+
 
 }
 

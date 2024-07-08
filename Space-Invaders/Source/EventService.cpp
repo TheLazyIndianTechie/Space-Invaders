@@ -26,7 +26,7 @@ void EventService::processEvents()
 	{
 		while (gameWindow->pollEvent(gameEvent)) {
 			// Check window closed
-			if (gameWindowWasClosed || hasQuitGame)
+			if (gameWindowWasClosed() || hasQuitGame())
 			{
 				gameWindow->close(); //Close the window from service locator
 			}

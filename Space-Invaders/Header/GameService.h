@@ -15,12 +15,6 @@ private:
 	void InitializeVariables();
 	void destroy();
 
-
-
-	
-	// Handle cleanup tasks
-	void Destroy();
-
 public:
 	// Constructor game service
 	GameService(); 
