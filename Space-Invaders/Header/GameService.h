@@ -1,10 +1,22 @@
 #pragma once
+#include <SFML/Graphics.hpp>
+#include "../Header/ServiceLocator.h"
+
 
 class GameService {
 
 private:
+
+	ServiceLocator* serviceLocator; 
+	sf::RenderWindow* gameWindow;
+	
 	// Initialize game
-	void Initialize();
+	void initialize();
+	void InitializeVariables();
+	void destroy();
+
+
+
 	
 	// Handle cleanup tasks
 	void Destroy();

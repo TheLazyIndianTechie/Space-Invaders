@@ -19,7 +19,7 @@ GraphicService::GraphicService()
 
 GraphicService::~GraphicService()
 {
-	OnDestroy();
+	OnDestroy(); // Clean up resources
 }
 
 sf::RenderWindow* GraphicService::createGameWindow()
@@ -32,6 +32,7 @@ sf::RenderWindow* GraphicService::createGameWindow()
 void GraphicService::initialize()
 {
 	window = createGameWindow();
+
 }
 
 void GraphicService::update()

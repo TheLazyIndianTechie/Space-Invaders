@@ -4,7 +4,7 @@ ServiceLocator::ServiceLocator()
 {
 	// Constructor for service locator
 	graphicService = nullptr;
-	createServices();
+	createServices(); // call to instantiate
 }
 
 ServiceLocator::~ServiceLocator()
@@ -18,7 +18,6 @@ void ServiceLocator::createServices()
 {
 	// Create all services for various units
 	graphicService = new GraphicService();
-	createServices();
 }
 
 void ServiceLocator::clearAllServices()
@@ -55,5 +54,5 @@ void ServiceLocator::render()
 
 GraphicService* ServiceLocator::getGraphicService()
 {
-	graphicService;
+	return graphicService;
 }

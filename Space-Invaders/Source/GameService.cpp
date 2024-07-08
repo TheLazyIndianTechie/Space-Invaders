@@ -1,45 +1,68 @@
 #include <iostream>
 #include "../Header/GameService.h"
+#include "../Header/GraphicService.h"
+
 using namespace std;
 
-void GameService::Initialize()
-{
-	// Initialize the game
-}
-
-void GameService::Destroy()
-{
-	// End the app
-}
 
 GameService::GameService()
 {
 	//Constructor
+	serviceLocator = nullptr;
+	gameWindow = nullptr;
+	
 }
 
 GameService::~GameService()
 {
 	//Destructor 
+	destroy();
 }
+
 
 void GameService::ignite()
 {
 	// Call the initialization and starts game
-	 	cout << "Igniting";
+	serviceLocator = ServiceLocator::getInstance();
+	initialize();
 }
+
+void GameService::initialize()
+{
+	// Initialize the game;
+	serviceLocator->initialize();
+	InitializeVariables();
+
+}
+
+void GameService::InitializeVariables()
+{
+	gameWindow = serviceLocator->getGraphicService()->getGameWindow();
+}
+
+void GameService::destroy()
+{
+	// End the app
+
+}
+
 
 void GameService::update()
 {
-	// Capture player input
-	// Do according to player input
-	// update game state
+	serviceLocator->update();
 
 }
 
 void GameService::render()
 {
 	// Clear window
+	gameWindow->clear(serviceLocator->getGraphicService()->getWindowColor());
+
 	// Render the window and objects
+	serviceLocator->render();
+
+	// Display the content
+	gameWindow->display();
 }
 
 bool GameService::isRunning()

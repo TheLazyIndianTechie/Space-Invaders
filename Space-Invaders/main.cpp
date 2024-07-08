@@ -175,19 +175,19 @@ int main() {
 	// While gameservice is running, call update and render
 
 	// Create GameService object
-	GameService gameService;
+	GameService* gameService = new GameService;
 
 	// Initialize game
-	gameService.ignite();
+	gameService->ignite();
 
 	// Check if game service is running
-	while (gameService.isRunning())
+	while (gameService->isRunning())
 	{
 		// Update game state
-		gameService.update();
+		gameService->update();
 		
 		// Render frames
-		gameService.render();
+		gameService->update();
 	}
 
 

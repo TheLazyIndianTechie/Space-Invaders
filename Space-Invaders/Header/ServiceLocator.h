@@ -8,7 +8,7 @@ class ServiceLocator
 {
 private:
     
-    GraphicService* graphicService;
+    GraphicService* graphicService; // Set a graphic service
 
     // Private Constructor and Destructor:
 
