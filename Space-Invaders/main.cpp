@@ -194,6 +194,5 @@ int main() {
 		gameService->render();
 	}
 
-
 	return 0;
 }

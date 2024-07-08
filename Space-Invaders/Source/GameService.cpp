@@ -68,7 +68,7 @@ void GameService::render()
 bool GameService::isRunning()
 {
 	// Checks if game services is running
-	return false;
+	return serviceLocator->getGraphicService()->isGameWindowOpen();
 }
 
 
