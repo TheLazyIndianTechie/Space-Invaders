@@ -41,18 +41,18 @@ bool EventService::isKeyboardEvent()
 
 bool EventService::pressedEscapeKey()
 {
-	return false;
+	return gameEvent.key.code == sf::Keyboard::Escape;
 }
 
 
 bool EventService::isGameWindowOpen()
 {
-	return false;
+	return gameWindow != nullptr; // Returns only if gamewindow is pointing to a variable. Once the variable is assigned, isGameWindow will be populated. Makes sense
 }
 
 bool EventService::gameWindowWasClosed()
 {
-	return false;
+	return gameEvent.type == sf::Event::Closed;
 }
 
 bool EventService::hasQuitGame()
