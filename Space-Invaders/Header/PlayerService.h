@@ -18,7 +18,7 @@ private:
 	sf::Vector2f initialPosition;
 	
 
-	void setPosition(Vector2f position) {
+	void setPosition(sf::Vector2f position) {
 		playerPosition = position;
 	}
 
@@ -39,7 +39,7 @@ public:
 	Player();
 	~Player();
 
-	Vector2f getPosition() {
+	sf::Vector2f getPosition() {
 		return playerPosition;
 	}
 
@@ -55,7 +55,7 @@ public:
 		return score;
 	}
 
-	void setPosition(Vector2f position) {
+	void setPosition(sf::Vector2f position) {
 		playerPosition = position;
 	}
 
@@ -82,7 +82,7 @@ Player::Player()
 	health = 100;
 	score = 0;
 	movementSpeed = 0.5f;
-	playerPosition = Vector2f(initialPosition);
+	playerPosition = sf::Vector2f(initialPosition);
 	playerSprite.setPosition(playerPosition);
 }
 
