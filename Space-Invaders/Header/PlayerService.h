@@ -1,24 +1,38 @@
 #pragma once
 #include <iostream>
 #include <SFML/Graphics.hpp>
-#include "../Header/GameService.h"
 
-class Player
+class PlayerService
 {
 
 private:
 	
+	// Player data variables
 	int health;
 	int score;
 	float movementSpeed;
+	sf::Vector2f playerPosition;
 	
+	// Player texture variables
+	const sf::String playerTexturePath = "../assets/textures/player_ship.png";
+
 	sf::Texture playerTexture;
 	sf::Sprite playerSprite;
-	sf::Vector2f playerPosition;
-	sf::Vector2f initialPosition;
-	
 
-	void setPosition(sf::Vector2f position) {
+	// Render window
+	sf::RenderWindow* gameWindow;
+
+	// Player transform variables
+	/*sf::Vector2f playerPosition;
+	sf::Vector2f initialPosition;*/
+
+
+	//Player methods
+	void initializePlayerSprite();
+	void processPlayerInput();
+	
+	
+	/*void setPosition(sf::Vector2f position) {
 		playerPosition = position;
 	}
 
@@ -33,13 +47,21 @@ private:
 
 	void shootBullets() {
 
-	}
+	}*/
 
 public:
-	Player();
-	~Player();
+	PlayerService();
+	~PlayerService();
 
-	sf::Vector2f getPosition() {
+	void initialize();
+	void update();
+	void render();
+
+	void movePlayer(float offsetX);
+	float getMovementSpeed();
+	sf::Vector2f getPosition();
+
+	/*sf::Vector2f getPosition() {
 		return playerPosition;
 	}
 
@@ -73,19 +95,19 @@ public:
 	}
 
 
-
+*/
 
 };
 
-Player::Player()
-{
-	health = 100;
-	score = 0;
-	movementSpeed = 0.5f;
-	playerPosition = sf::Vector2f(initialPosition);
-	playerSprite.setPosition(playerPosition);
-}
-
-Player::~Player()
-{
-}
+//Player::Player()
+//{
+//	health = 100;
+//	score = 0;
+//	movementSpeed = 0.5f;
+//	playerPosition = sf::Vector2f(initialPosition);
+//	playerSprite.setPosition(playerPosition);
+//}
+//
+//Player::~Player()
+//{
+//}
