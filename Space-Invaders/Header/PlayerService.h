@@ -2,19 +2,21 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "../Header/GameService.h"
-using namespace sf;
 
 class Player
 {
 
 private:
+	
 	int health;
 	int score;
 	float movementSpeed;
+	
 	sf::Texture playerTexture;
 	sf::Sprite playerSprite;
 	sf::Vector2f playerPosition;
 	sf::Vector2f initialPosition;
+	
 
 	void setPosition(Vector2f position) {
 		playerPosition = position;
@@ -53,11 +55,35 @@ public:
 		return score;
 	}
 
+	void setPosition(Vector2f position) {
+		playerPosition = position;
+	}
+
+	void takeDamage() {
+
+	}
+
+	void movePlayer(float offsetX) {
+		playerPosition.x += offsetX;
+
+	}
+
+	void shootBullets() {
+
+	}
+
+
+
 
 };
 
 Player::Player()
 {
+	health = 100;
+	score = 0;
+	movementSpeed = 0.5f;
+	playerPosition = Vector2f(initialPosition);
+	playerSprite.setPosition(playerPosition);
 }
 
 Player::~Player()
