@@ -92,3 +92,12 @@ sf::Vector2f PlayerService::getPosition()
 {
 	return playerPosition;
 }
+
+
+// player speed = 350 m/s
+// frame rate = 60 fps
+// frame time = 0.016s
+// distance per frame = ?
+
+// 350 m / 60f 
+// 5.833 m / f

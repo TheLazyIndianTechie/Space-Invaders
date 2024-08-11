@@ -8,6 +8,7 @@ private:
 	const std::string windowTitle = "The Lazy Invader";
 	const int windowHeight = 800;
 	const int windowWidth = 600;
+	const int targetFrameRate = 60;
 
 	const sf::Color windowColor = sf::Color::Yellow;
 
