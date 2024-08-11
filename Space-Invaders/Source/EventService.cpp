@@ -22,8 +22,10 @@ void EventService::update()
 
 void EventService::processEvents()
 {
-	if (gameWindow->isOpen())
+	if (isGameWindowOpen())
 	{
+		std::cout << "Game window is Open" <<std::endl;
+
 		while (gameWindow->pollEvent(gameEvent)) {
 			// Check window closed
 			if (gameWindowWasClosed() || hasQuitGame())
@@ -37,6 +39,7 @@ void EventService::processEvents()
 bool EventService::isKeyboardEvent()
 {
 	return gameEvent.type == sf::Event::KeyPressed; // Returns only if event type is a key press 
+	std::cout << "Is a keyboard event" <<std::endl;
 }
 
 bool EventService::pressedEscapeKey()
