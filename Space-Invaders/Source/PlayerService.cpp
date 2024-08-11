@@ -8,7 +8,7 @@ PlayerService::PlayerService()
 	
 	health = 3;
 	score = 0;
-	movementSpeed = 100;
+	movementSpeed = 400.0f;
 	sf::Vector2f playerPosition = getPosition();
 }
 

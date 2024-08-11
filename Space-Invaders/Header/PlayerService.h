@@ -10,7 +10,7 @@ private:
 	// Player data variables
 	int health = 5;
 	int score = 0;
-	float movementSpeed = 100;
+	float movementSpeed = 3.0f;
 	sf::Vector2f playerPosition = sf::Vector2f(200.0f, 100.0f);
 	
 	// Player texture variables
