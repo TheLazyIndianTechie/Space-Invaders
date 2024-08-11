@@ -3,7 +3,7 @@
 
 void TimeService::initialize()
 {
-	previous_time = std::chrono::steady_clock::now();
+	previousTime = std::chrono::steady_clock::now();
 	deltaTime = 0;
 }
 
