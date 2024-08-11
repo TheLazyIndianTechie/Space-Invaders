@@ -8,9 +8,13 @@ private:
 	sf::Event gameEvent; // An event in a game
 	sf::RenderWindow* gameWindow; // game window pointer
 
+	// Check gameplay events
 	bool isGameWindowOpen();
 	bool gameWindowWasClosed();
 	bool hasQuitGame();
+
+	
+
 
 public:
 	EventService(); // Constructor for event service
@@ -21,5 +25,7 @@ public:
 	void processEvents();
 	bool pressedEscapeKey();
 	bool isKeyboardEvent();
+	bool pressedLeftKey();
+	bool pressedRightKey();
 
 };

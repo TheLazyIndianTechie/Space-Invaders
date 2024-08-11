@@ -59,3 +59,14 @@ bool EventService::hasQuitGame()
 {
 	return isKeyboardEvent() && pressedEscapeKey(); // Emitted only if both are true
 }
+
+bool EventService::pressedLeftKey()
+{
+	return gameEvent.key.code == sf::Keyboard::Left;
+	
+}
+
+bool EventService::pressedRightKey()
+{
+	return gameEvent.key.code == sf::Keyboard::Right;
+}

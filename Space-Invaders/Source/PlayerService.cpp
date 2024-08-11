@@ -53,23 +53,19 @@ void PlayerService::initializePlayerSprite()
 
 void PlayerService::processPlayerInput()
 {
-	// Set up player input controls
-	sf::Keyboard::Key movePlayerLeft = sf::Keyboard::Left;
-	sf::Keyboard::Key movePlayerRight = sf::Keyboard::Right;
+	EventService* event_service = ServiceLocator::getInstance()->getEventService();
 
-	// Capture player input
-	if (sf::Keyboard::isKeyPressed(movePlayerLeft))
+	if (event_service->isKeyboardEvent())
 	{
-		// Move player left
-		std::cout << "Player is being moved left" << std::endl;
-		movePlayer(-1.0 * getMovementSpeed());
-	}
+		if (event_service->pressedLeftKey())
+		{
+			movePlayer(-1.0 * getMovementSpeed());
+		}
 
-	if (sf::Keyboard::isKeyPressed(movePlayerRight))
-	{
-		// Move player right
-		std::cout << "Player is being moved right" << std::endl;
-		movePlayer(1.0 * getMovementSpeed());
+		if (event_service->pressedRightKey()) 
+		{
+			movePlayer(1.0 * getMovementSpeed());
+		}
 	}
 }
 

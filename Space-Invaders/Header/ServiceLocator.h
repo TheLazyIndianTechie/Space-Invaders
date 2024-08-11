@@ -1,6 +1,7 @@
 #pragma once
 #include "../Header/GraphicService.h"
 #include "../Header/EventService.h"
+#include "../Header/PlayerService.h"
 
 // ServiceLocator Class Summary: This class manages access to various services in the application.
 // include relevant headers files
@@ -11,6 +12,7 @@ private:
     
     GraphicService* graphicService; // Set a graphic service
     EventService* eventService; // Set an event service
+
 
     // Private Constructor and Destructor:
 
