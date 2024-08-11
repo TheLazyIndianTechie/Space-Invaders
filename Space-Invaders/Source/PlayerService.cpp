@@ -5,11 +5,10 @@
 PlayerService::PlayerService()
 {
 	gameWindow = nullptr;
-	
 	health = 3;
 	score = 0;
 	movementSpeed = 400.0f;
-	sf::Vector2f playerPosition = getPosition();
+	playerPosition = sf::Vector2f(300.0f, 300.0f);
 }
 
 PlayerService::~PlayerService() = default;
@@ -29,6 +28,7 @@ void PlayerService::update()
 void PlayerService::render()
 {
 	gameWindow->draw(playerSprite);
+	
 }
 
 void PlayerService::initializePlayerSprite()
@@ -37,6 +37,8 @@ void PlayerService::initializePlayerSprite()
 	// Set sprite
 	if (playerTexture.loadFromFile(playerTexturePath))
 	{
+		playerSprite.setPosition(playerPosition);
+
 		std::cout << "Texture loaded successfully: " << playerTexture.getSize().x << " x " << playerTexture.getSize().y << std::endl;
 
 		playerSprite.setTexture(playerTexture);
@@ -57,24 +59,28 @@ void PlayerService::processPlayerInput()
 		if (event_service->pressedLeftKey())
 		{
 			std::cout << "Player has pressed left key. trying to move player left" << std::endl;
-			movePlayer(-1.0 * getMovementSpeed());
+			movePlayerLeft();
+			playerSprite.setPosition(playerPosition);
 		}
 
 		if (event_service->pressedRightKey()) 
 		{
 			std::cout << "Player has pressed right key. trying to move player right" << std::endl;
-			movePlayer(1.0 * getMovementSpeed());
+			movePlayerRight();
+			playerSprite.setPosition(playerPosition);
 		}
 	}
 }
 
-void PlayerService::movePlayer(float offsetX)
+
+void PlayerService::movePlayerLeft()
 {
-	std::cout << "Moving Player " << getMovementSpeed();
-	playerPosition.x += offsetX * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
-	
-	// Update Player Sprite
-	playerSprite.setPosition(playerPosition);
+	playerPosition.x -= movementSpeed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+}
+
+void PlayerService::movePlayerRight()
+{
+	playerPosition.x += movementSpeed * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
 }
 
 float PlayerService::getMovementSpeed()
