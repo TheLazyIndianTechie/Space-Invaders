@@ -12,7 +12,7 @@ private:
     
     GraphicService* graphicService; // Set a graphic service
     EventService* eventService; // Set an event service
-
+    PlayerService* playerService; // Set a player service
 
     // Private Constructor and Destructor:
 
@@ -37,4 +37,5 @@ public:
     // Methods to Get Specific Services: 
     GraphicService* getGraphicService();   // Retrieve the GraphicService instance
     EventService* getEventService(); // Retrieve the Event Service instance
+    PlayerService* getPlayerService(); // Retrieve the Player Service instance 
 };
