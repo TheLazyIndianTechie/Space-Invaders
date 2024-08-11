@@ -1,0 +1,100 @@
+#include "../Header/ServiceLocator.h"
+
+ServiceLocator::ServiceLocator()
+{
+	// Constructor for service locator
+	graphicService = nullptr;
+	timeService = nullptr;
+	eventService = nullptr;
+	playerService = nullptr;
+
+	createServices(); // call to instantiate
+}
+
+ServiceLocator::~ServiceLocator()
+{
+	// Deconstructor for service locator
+	clearAllServices();
+
+}
+
+void ServiceLocator::createServices()
+{
+	// Create all services for various units
+	graphicService = new GraphicService();
+	timeService = new TimeService();
+	eventService = new EventService();
+	playerService = new PlayerService();
+}
+
+void ServiceLocator::clearAllServices()
+{
+	// Clear all services up on destroy
+	delete(graphicService);
+	graphicService = nullptr;
+
+	delete(timeService);
+	timeService = nullptr;
+
+	delete(eventService);
+	eventService = nullptr;
+
+	delete(playerService);
+	playerService = nullptr;
+
+	
+
+	// Prevents dangling pointers
+}
+
+ServiceLocator* ServiceLocator::getInstance()
+{
+	// Method to get service locator instance
+	static ServiceLocator instance;
+	return &instance;
+}
+
+void ServiceLocator::initialize()
+{
+	// Initialize services
+	graphicService->initialize();
+	timeService->initialize();
+	eventService->initialize();
+	playerService->initialize();
+}
+
+void ServiceLocator::update()
+{
+	// Update game state and logic for service
+	graphicService->update();
+	timeService->update();
+	eventService->update();
+	playerService->update();
+}
+
+void ServiceLocator::render()
+{
+	// Render services 
+	graphicService->render();
+	playerService->render();
+}
+
+GraphicService* ServiceLocator::getGraphicService()
+{
+	return graphicService;
+}
+
+TimeService* ServiceLocator::getTimeService()
+{
+	return timeService;
+}
+
+EventService* ServiceLocator::getEventService()
+{
+	return eventService;
+}
+
+PlayerService* ServiceLocator::getPlayerService()
+{
+	return playerService;
+}
