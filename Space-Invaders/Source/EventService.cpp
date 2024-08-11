@@ -24,8 +24,6 @@ void EventService::processEvents()
 {
 	if (isGameWindowOpen())
 	{
-		std::cout << "Game window is Open" <<std::endl;
-
 		while (gameWindow->pollEvent(gameEvent)) {
 			// Check window closed
 			if (gameWindowWasClosed() || hasQuitGame())
@@ -65,8 +63,7 @@ bool EventService::hasQuitGame()
 
 bool EventService::pressedLeftKey()
 {
-	return gameEvent.key.code == sf::Keyboard::Left;
-	
+	return gameEvent.key.code == sf::Keyboard::Left;	
 }
 
 bool EventService::pressedRightKey()

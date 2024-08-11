@@ -37,17 +37,14 @@ void PlayerService::initializePlayerSprite()
 	// Set sprite
 	if (playerTexture.loadFromFile(playerTexturePath))
 	{
-		std::cout << "Texture loaded successfully: " << playerTexture.getSize().x << " x " << playerTexture.getSize().y;
+		std::cout << "Texture loaded successfully: " << playerTexture.getSize().x << " x " << playerTexture.getSize().y << std::endl;
 
 		playerSprite.setTexture(playerTexture);
-
-		// Set origin to the center of the texture
-		playerSprite.setOrigin(playerTexture.getSize().x / 2.f, playerTexture.getSize().y / 2.f);
-
+		std::cout << "Player sprite set successfully" << std::endl;
 	}
 	else
 	{
-		std::cout << "Player sprite could not be loaded";
+		std::cout << "Player sprite could not be loaded"<<std::endl;
 	}
 }
 
@@ -59,11 +56,13 @@ void PlayerService::processPlayerInput()
 	{
 		if (event_service->pressedLeftKey())
 		{
+			std::cout << "Player has pressed left key. trying to move player left" << std::endl;
 			movePlayer(-1.0 * getMovementSpeed());
 		}
 
 		if (event_service->pressedRightKey()) 
 		{
+			std::cout << "Player has pressed right key. trying to move player right" << std::endl;
 			movePlayer(1.0 * getMovementSpeed());
 		}
 	}
