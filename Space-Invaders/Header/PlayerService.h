@@ -14,7 +14,7 @@ private:
 	sf::Vector2f playerPosition = sf::Vector2f(200.0f, 100.0f);
 	
 	// Player texture variables
-	const sf::String playerTexturePath = "../assets/textures/player_ship.png";
+	const sf::String playerTexturePath = "assets/textures/player_ship.png";
 
 	sf::Texture playerTexture;
 	sf::Sprite playerSprite;

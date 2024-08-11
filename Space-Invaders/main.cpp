@@ -15,11 +15,8 @@ int main() {
 
 	// Create GameService object
 	GameService* gameService = new GameService;
-	cout << "Created a game service successfully";
-
 	// Initialize game
 	gameService->ignite();
-	cout << "Ignited";
 
 	// Check if game service is running
 	while (gameService->isRunning())
