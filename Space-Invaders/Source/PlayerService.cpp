@@ -8,7 +8,7 @@ PlayerService::PlayerService()
 	
 	health = 3;
 	score = 0;
-	movementSpeed = 5;
+	movementSpeed = 100;
 	sf::Vector2f playerPosition = getPosition();
 }
 
@@ -71,7 +71,9 @@ void PlayerService::processPlayerInput()
 void PlayerService::movePlayer(float offsetX)
 {
 	std::cout << "Moving Player " << getMovementSpeed();
-	playerPosition.x += offsetX;
+	playerPosition.x += offsetX * ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+	
+	// Update Player Sprite
 	playerSprite.setPosition(playerPosition);
 }
 
