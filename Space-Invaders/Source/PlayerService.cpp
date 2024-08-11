@@ -70,7 +70,9 @@ void PlayerService::processPlayerInput()
 
 void PlayerService::movePlayer(float offsetX)
 {
+	std::cout << "Moving Player " << getMovementSpeed();
 	playerPosition.x += offsetX;
+	playerSprite.setPosition(playerPosition);
 }
 
 float PlayerService::getMovementSpeed()
