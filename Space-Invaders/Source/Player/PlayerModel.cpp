@@ -17,7 +17,7 @@ void PlayerModel::initialize()
 
 void PlayerModel::reset()
 {
-	isPlayerAlive = true;
+	currentPlayerState = PlayerState::ALIVE;
 	currentPlayerPosition = initialPlayerPosition;
 	playerScore = 0;
 }
@@ -27,9 +27,14 @@ void PlayerModel::setPlayerPosition(sf::Vector2f position)
 	currentPlayerPosition = position;
 }
 
-void PlayerModel::setPlayerAlive(bool alive)
+void PlayerModel::setPlayerState(PlayerState state)
 {
-	isPlayerAlive = alive;
+	currentPlayerState = state;
+}
+
+void PlayerModel::setPlayerScore(int score)
+{
+	playerScore = score;
 }
 
 sf::Vector2f PlayerModel::getPlayerPosition()
@@ -37,8 +42,14 @@ sf::Vector2f PlayerModel::getPlayerPosition()
 	return currentPlayerPosition;
 }
 
-bool PlayerModel::getPlayerAlive()
+PlayerState PlayerModel::getPlayerState()
 {
-	return isPlayerAlive;
+	return currentPlayerState;
 }
+
+int PlayerModel::getPlayerScore()
+{
+	return playerScore;
+}
+
 

@@ -1,13 +1,21 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
+enum class PlayerState
+{
+	ALIVE,
+	DEAD,
+};
+
+
 class PlayerModel
 {
 private:
 	
 	sf::Vector2f currentPlayerPosition;
 	sf::Vector2f initialPlayerPosition = sf::Vector2f(400.f, 400.f);
-	bool isPlayerAlive = false;
+	
+	PlayerState currentPlayerState;
 
 	int playerScore = 0;
 
@@ -26,10 +34,12 @@ public:
 
 	// Setters
 	void setPlayerPosition(sf::Vector2f position);
-	void setPlayerAlive(bool alive);
+	void setPlayerState(PlayerState state);
+	void setPlayerScore(int score);
 
 	// Getters
 	sf::Vector2f getPlayerPosition();
-	bool getPlayerAlive();
+	PlayerState getPlayerState();
+	int getPlayerScore();
 
 };
